@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "preact",
-  "version": "0.0.0",
+  "name": "kards-public-stats-react",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "per-env",
@@ -17,16 +17,20 @@
     "eslint": "^4.9.0",
     "eslint-config-synacor": "^2.0.2",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.3",
     "per-env": "^1.0.2",
-    "jest": "^21.2.1",
-    "preact-cli": "^2.1.0",
+    "preact-cli": "^3.2.2",
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
-    "preact": "^8.2.6",
+    "@apollo/client": "^3.3.19",
+    "graphql": "^15.5.0",
+    "preact": "^10.5.13",
     "preact-compat": "^3.17.0",
     "preact-render-to-string": "^4.1.0",
-    "preact-router": "^2.5.7"
+    "preact-router": "^2.5.7",
+    "react-json-view": "^1.21.3",
+    "underscore": "^1.13.1"
   },
   "jest": {
     "verbose": true,

@@ -1,20 +1,180 @@
-html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	color: #444;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+:root {
+    font-size: 62.5%
 }
 
-* {
-	box-sizing: border-box;
+@media(min-aspect-ratio: 3/2) {
+    :root {
+        font-size:clamp(46.875%,calc(28.125% + .6vh),62.5%)
+    }
 }
 
-#app {
-	height: 100%;
+html {
+    display: block
+}
+
+body,html {
+    min-height: 100vh;
+    width: 100%;
+    /*background-color: #1f1f1f*/
+}
+
+html {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    font-size: 10px;
+    background-color: #1f1f1f;
+    background-image: url('images/bg.jpg');
+    background-repeat: no-repeat,no-repeat,repeat;
+    background-position: 60% -10vh,40% 234rem,0 0;
+}
+
+*,:after,:before {
+    box-sizing: inherit
+}
+
+body {
+    position: relative;
+    margin: 0;
+    font-family: Open Sans,sans-serif;
+    font-size: calc(1.6rem + (0vw - 0rem)/86);
+    line-height: 1.5;
+    color: #ebebdc;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%
+}
+
+@media screen and (min-width: 1280px) {
+    body {
+        font-size:1.6rem
+    }
+}
+
+@media screen and (max-width: 420px) {
+    body {
+        font-size:1.6rem
+    }
+}
+
+body.no-scroll {
+    height: 100vh;
+    overflow: hidden
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('fonts/Oswald-Regular.eot');
+    src: url('fonts/Oswald-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Oswald-Regular.woff2') format('woff2'),
+        url('fonts/Oswald-Regular.woff') format('woff'),
+        url('fonts/Oswald-Regular.ttf') format('truetype'),
+        url('fonts/Oswald-Regular.svg#Oswald-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.match {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+.no-game {
+    display: block;
+}
+
+h3 {
+    font-family: Oswald,sans-serif;
+    font-size: calc(1.8rem + (260vw - 109.2rem)/86);
+    background-image: url('images/text-bg.png');
+    background-size: 10.15em auto;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0 0 .7em;
+}
+
+h2 {
+    font-family: Oswald,sans-serif;
+    font-size: calc(1.9rem + (260vw - 109.2rem)/86);
+    background-image: url('images/text-bg.png');
+    background-size: 10.15em auto;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0 0 .7em;
+}
+
+h1 {
+    font-family: Oswald,sans-serif;
+    font-size: calc(2rem + (160vw - 67.2rem)/86);
+    background-image: url('images/text-bg.png');
+    background-size: 10.15em auto;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0 0 .7em;
+}
+
+.button {
+    margin: 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 4em;
+    padding: 0 1.1em;
+    min-width: 9em;
+    max-width: 100%;
+    font-family: Oswald, sans-serif;
+    font-size: calc(1.6rem + (30vw - 12.6rem)/86);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ebebdc;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #ebebdc;
+    transition: background-color .2s,color .2s;
+}
+
+.line {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.line:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #ebebdc;
+    transition: transform .3s;
+    transform-origin: 50% 50%;
 }
