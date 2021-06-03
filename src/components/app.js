@@ -11,9 +11,15 @@ import JSONTree from 'react-json-tree'
 
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
+let uri;
+if (process.env.NODE_ENV == 'production') {
+  uri = 'https://kards-public-stats.herokuapp.com/graphql';
+} else {
+  uri = 'http://localhost:4848/';
+}
+
 const client = new ApolloClient({
-  //uri: 'https://kards-public-stats.herokuapp.com/graphql',
-  uri: 'http://localhost:4848/',
+  uri: uri,
   cache: new InMemoryCache()
 });
 
