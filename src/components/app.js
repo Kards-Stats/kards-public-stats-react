@@ -13,7 +13,7 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 let uri;
 if (process.env.NODE_ENV == 'production') {
-  uri = 'https://kards-public-stats.herokuapp.com/graphql';
+  uri = 'https://kards-public-stats.herokuapp.com/';
 } else {
   uri = 'http://localhost:4848/';
 }
