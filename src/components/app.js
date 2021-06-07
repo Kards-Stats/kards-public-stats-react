@@ -3,7 +3,7 @@ import { Component } from 'preact';
 import Loader from './loader';
 import style from './style';
 
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/logo.png';
 
 import _ from 'underscore';
 
@@ -18,9 +18,21 @@ if (process.env.NODE_ENV == 'production') {
   uri = 'http://localhost:4848/';
 }
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'ignore',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+}
+
 const client = new ApolloClient({
   uri: uri,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions: defaultOptions
 });
 
 const nameReg = /^[a-zA-Z0-9-_]+[#]\d{4}$/;
@@ -150,6 +162,7 @@ export default class App extends Component {
       this.setState({
         loading: true,
         hasData: false,
+        queued: false,
         data: {},
         error: ''
       });
@@ -209,6 +222,7 @@ export default class App extends Component {
           this.setState({
             loading: false,
             hasData: false,
+            queued: false,
             data: {},
             error: 'Unknown Response'
           });
@@ -297,6 +311,7 @@ export default class App extends Component {
         console.log(e);
         this.setState({
           loading: false,
+          hasData: false,
           queued: false,
           error: 'Unkown error'
         });
@@ -398,7 +413,11 @@ export default class App extends Component {
         }
       }
     } else {
-      data = <span class={style.title}>No Data</span>;
+      data = <div class={style.stats}>
+        <span class={style.title}>No Data</span>
+        <p>Type a kards username and click search, if no data is shown, just click the update button and wait a few seconds</p>
+        <p>A user can only be updated every 10 minutes</p>
+      </div>;
     }
     if (this.state.loading) {
       page = <Loader />;
