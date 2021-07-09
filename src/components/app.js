@@ -36,7 +36,7 @@ const client = new ApolloClient({
 });
 
 const nameReg = /^[a-zA-Z0-9-_]+[#]\d{4}$/;
-const idReg = /^\d{6}$/;
+const idReg = /^\d{3,6}$/;
 
 const jsonTheme = {
   scheme: 'monokai',
